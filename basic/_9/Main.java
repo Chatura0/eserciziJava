@@ -8,7 +8,6 @@ public class Main {
         exercise4();
     }
 
-
     /**
      * 1: Read the code below, change the 'porridgeHeatInCentigrade' so it prints out "Just right"
      */
