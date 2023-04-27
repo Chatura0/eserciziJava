@@ -93,7 +93,7 @@ public class Main {
     }
 
     /**
-     * 4: BONUS! This is an optional task, but it is recommended you complete it
+     * 4: m BONUS! This is an optional task, but it is recommended you complete it
      * -------------------------------------------------------------------------
      * Complete exercise 2 a switch statement with -> instead of :
      * i.e. case 19 -> System.out.print("Largest prime under 20");
