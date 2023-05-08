@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Exercises {
     public static void main(String[] args) {
-       exercise1();
+        exercise1();
         exercise2();
         exercise3();
         exercise4();
