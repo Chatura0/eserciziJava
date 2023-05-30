@@ -84,9 +84,8 @@ public class Exercises {
     private static void exercise3() {
         // 3a. Find the min and max values in the Set below
         Set<Integer> numbers = Set.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        int max = Integer.MAX_VALUE;
-        int min = Integer.MIN_VALUE;
-
+        int max = Integer.MIN_VALUE; // Correzione: Inizializziamo max al valore minimo possibile
+        int min = Integer.MAX_VALUE; // Correzione: Inizializziamo min al valore massimo possibile
 
         for (Integer number : numbers) {
             if (number > max) {
@@ -98,8 +97,11 @@ public class Exercises {
         }
 
         if (max != 10 || min != 1) {
-            System.out.println("3a. Incorrect min or max values");
+            System.out.println("3a. Valori min o max non corretti");
+        } else {
+            System.out.println("3a. Valori min e max corretti");
         }
+
 
         // 3b. Find which items from set a are also in set b, add these to itemsContainedInBothSets
         //     use the `contains` method and "nested" for loop

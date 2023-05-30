@@ -19,9 +19,10 @@ public class Exercises {
     private static void exercise1() {
         List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c", "a", "b", "c", "a", "b", "c"));
 
-        // Your code here
+        Set<String> set = new HashSet<>(list);
+        List<String> resetList = new ArrayList<>(set);
 
-        if (list.size() == 3) {
+        if (resetList.size() == 3) {
             System.out.println("Exercise 1: Success");
         } else {
             System.out.println("Exercise 1: Failed");
@@ -36,9 +37,17 @@ public class Exercises {
         // Your code here
         List<String> list = Arrays.asList("apple", "banana", "apple", "orange", "kiwi", "banana");
         Set<String> set = Set.of("apple", "banana");
-        // toSet(list); <-- uncomment
-        // toSet(set); <-- uncomment
+        Set<String> result1 = toSet(list);
+        Set<String> result2 = toSet(set);
+
+        System.out.println(result1);
+        System.out.println(result2);
     }
+
+    private static Set<String> toSet(Collection<String> collection) {
+        return new HashSet<>(collection);
+    }
+
 
     // Write your method for exercise 2 here
 
@@ -55,7 +64,13 @@ public class Exercises {
         // and store the counts in the Map `wordCount`, note you will need to first get the previous value
         // from the Map and then increment it by 1, if no previous value exists, use 0 as the previous value.
 
-        // Your code here
+        for (String word : words) {
+            int count = wordCount.getOrDefault(word, 0);
+            wordCount.put(word, count + 1);
+        }
+
+        System.out.println(wordCount);
+      }
     }
 
     /**
@@ -65,40 +80,40 @@ public class Exercises {
      *    and explain why you chose that data structure.
      *
      *    1 - You want to store the students in order of their arrival
-     *    Answer:
+     *    Answer:La migliore struttura dati da utilizzare sarebbe una List perchè consente di
+     *    mantenere l'ordine di inserimento degli elementi, quindi sarebbe adatta per tenere traccia dell'ordine di arrivo degli studenti.
      *
      *    2 - You want to store the students in a class and their grades
-     *    Answer:
+     *    Answer:La migliore struttura dati da utilizzare sarebbe una Map
+     *     poichè permette di associare una chiave ad un valore, consentendo di memorizzare gli studenti e i loro voti come coppie di chiave-valore.
      *
      *    3 - You want to store the countries in the world in order of age
-     *    Answer:
+     *    Answer: La migliore struttura dati da utilizzare sarebbe una List anche in questo caso.
      *
      *    4 - You want to store the products available for purchase in an online store, along with their corresponding prices.
-     *    Answer:
+     *    Answer: La migliore struttura dati da utilizzare sarebbe una Map.
      *
      *    5 - You want to store the employees at a company in the order you added them
-     *    Answer:
+     *    Answer:La migliore struttura dati da utilizzare sarebbe una List.
      *
      *    6 - You want to store the cities in a particular state, along with their populations.
-     *    Answer:
+     *    Answer: La migliore struttura dati da utilizzare sarebbe una Map.
      *
      *    7 - You want to store the books in a library, along with their authors and publication dates.
-     *    Answer:
+     *    Answer:La migliore struttura dati da utilizzare sarebbe una Map.
      *
      *    8 - You want to store the courses offered at a university, along with the professors teaching each course.
-     *    Answer:
+     *    Answer:La migliore struttura dati da utilizzare sarebbe una Map.
      *
      *    9 - You want to store the movies in a movie rental store, along with their ratings and release dates.
-     *    Answer:
+     *    Answer:La migliore struttura dati da utilizzare sarebbe una Map.
      *
      *    10 - You want to store the flights available for booking on an airline, along with their destinations and departure times.
-     *    Answer:
+     *    Answer: La migliore struttura dati da utilizzare sarebbe unz Map.
      *
      *    11 - You want to store the articles on a news website, along with their titles and publication dates.
-     *    Answer:
+     *    Answer: La migliore struttura dati da utilizzare sarebbe una Map
      *
      *    12 - You want to store the songs in a music streaming service, along with their artists and album names.
-     *    Answer:
+     *    Answer: La migliore struttura dati da utilizzare sarebbe una Map.
      */
-
-}

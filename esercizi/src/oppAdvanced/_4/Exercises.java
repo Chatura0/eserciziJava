@@ -1,8 +1,9 @@
-package javaadvanced._4;
+package oppAdvanced._4;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class Exercises {
 
@@ -17,8 +18,6 @@ public class Exercises {
         exercise5();
     }
 
-    // Use the MY_PATH constant
-
     /**
      * 1:
      * Write a method that writes myString to a file
@@ -31,9 +30,8 @@ public class Exercises {
                 """;
 
         try {
-            Files.createFile(MY_PATH);
-
-            // Your code here
+            Files.writeString(MY_PATH, myString);
+            System.out.println("File written successfully.");
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -49,17 +47,16 @@ public class Exercises {
     private static void exercise2() {
         System.out.println("\nExercise 2: ");
         try {
-            // Your code here
+            String fileContent = Files.readString(MY_PATH);
+            System.out.println(fileContent);
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
             System.exit(0);
         }
-
-
     }
 
-     /**
+    /**
      * 3:
      * Write a method that reads a file and print the number of lines in the file
      */
@@ -68,7 +65,9 @@ public class Exercises {
         // Write code here to read the file and return the number of lines "\n", string.split
 
         try {
-            // Your code here
+            List<String> lines = Files.readAllLines(MY_PATH);
+            int numberOfLines = lines.size();
+            System.out.println("Number of lines: " + numberOfLines);
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -86,7 +85,13 @@ public class Exercises {
     private static void exercise4() {
         System.out.println("\nExercise 4: ");
         try {
-            // Your code here
+            String fileContent = Files.readString(MY_PATH);
+            String[] words = fileContent.split("\\s+");
+            int numberOfWords = words.length;
+            System.out.println("Number of words: " + numberOfWords);
+
+            Files.delete(MY_PATH);
+            System.out.println("File deleted successfully.");
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
@@ -103,8 +108,16 @@ public class Exercises {
         Path myDirectoryPath = Path.of("mydirectory");
 
         try {
-            // Your code
-            Files.writeString(PATH_IN_A_FOLDER, "Why am I in a folder?");
+            if (!Files.exists(myDirectoryPath)) {
+                Files.createDirectories(myDirectoryPath);
+                System.out.println("Directory created.");
+            } else {
+                System.out.println("Directory already exists.");
+            }
+
+            Path filePathInDirectory = myDirectoryPath.resolve("file.txt");
+            Files.writeString(filePathInDirectory, "Why am I in a folder?");
+            System.out.println("File written in directory.");
         } catch (Exception exception) {
             System.err.println("There was an error!");
             exception.printStackTrace();
